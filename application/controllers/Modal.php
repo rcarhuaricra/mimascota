@@ -16,7 +16,7 @@ class Modal extends CI_Controller {
 
     public function modalRegister() {
 
-        echo $this->load->view('/modales/ModalRegister', '', TRUE);
+        echo $this->load->view('/modales/ModalRegisterUser', '', TRUE);
     }
 
     public function ModalRegisterMascota() {
