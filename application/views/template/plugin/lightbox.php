@@ -1,0 +1,2 @@
+<link type="text/css" rel="stylesheet" href="<?php echo base_url('recursos/'); ?>css/lightbox.css">
+<script type="text/javascript" src="<?php echo base_url('recursos/'); ?>js/lightbox.min.js"></script>

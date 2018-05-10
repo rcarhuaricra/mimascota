@@ -1,0 +1,1 @@
+<script type="text/javascript" src="<?php echo base_url('recursos/'); ?>js/jquery.bxslider.min.js"></script>
