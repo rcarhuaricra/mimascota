@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">proyectobase</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="users" view="standard">
+<left>313</left>
+<top>19</top>
+<width>282</width>
+<height>422</height>
+<sql_create_table>CREATE TABLE `users` (
+  `ID_PERSONA` varchar(36) NOT NULL,
+  `USER` varchar(35) DEFAULT NULL,
+  `NOMBRES` varchar(35) DEFAULT NULL,
+  `APELLIDO_PATERNO` varchar(35) DEFAULT NULL,
+  `APELLIDO_MATERNO` varchar(35) DEFAULT NULL,
+  `NUMERO_DOCUMENTO` varchar(11) DEFAULT NULL,
+  `NACIMIENTO` datetime DEFAULT NULL,
+  `DIRECCION` varchar(100) DEFAULT NULL,
+  `TELEFONO` varchar(9) DEFAULT NULL,
+  `EMAIL` varchar(50) DEFAULT NULL,
+  `PASSWORD` varchar(32) DEFAULT NULL,
+  `USERREG` varchar(36) DEFAULT NULL,
+  `FECREG` datetime DEFAULT NULL,
+  `USERMOD` varchar(36) DEFAULT NULL,
+  `FECMOD` datetime DEFAULT NULL,
+  `USERESTADO` varchar(1) DEFAULT NULL,
+  `ID_PERFIL` int(5) DEFAULT NULL,
+  `NOTIFICACIONES` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`ID_PERSONA`),
+  KEY `ID_PERFIL` (`ID_PERFIL`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`ID_PERFIL`) REFERENCES `perfiles` (`ID_PERFILE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="especie" view="colnames">
+<left>1160</left>
+<top>-3</top>
+<width>151</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `especie` (
+  `ID_ESPECIE` int(5) NOT NULL AUTO_INCREMENT,
+  `ESPECIE` varchar(50) DEFAULT NULL,
+  `ESPECIE_ESTADO` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`ID_ESPECIE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="perfiles" view="standard">
+<left>16</left>
+<top>29</top>
+<width>239</width>
+<height>197</height>
+<sql_create_table>CREATE TABLE `perfiles` (
+  `ID_PERFILE` int(5) NOT NULL AUTO_INCREMENT,
+  `NOMBRE_PERFIL` varchar(30) DEFAULT NULL,
+  `USERREG` varchar(36) DEFAULT NULL,
+  `FECREG` datetime DEFAULT NULL,
+  `USERMOD` varchar(36) DEFAULT NULL,
+  `FECMOD` datetime DEFAULT NULL,
+  `PERFIL_ESTADO` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`ID_PERFILE`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="raza" view="colnames">
+<left>1174</left>
+<top>132</top>
+<width>133</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `raza` (
+  `ID_RAZA` int(5) NOT NULL AUTO_INCREMENT,
+  `RAZA` varchar(50) DEFAULT NULL,
+  `RAZA_ESTADO` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`ID_RAZA`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="sexoMascota" view="colnames">
+<left>1152</left>
+<top>400</top>
+<width>191</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `sexomascota` (
+  `ID_SEXOMASCOTA` int(5) NOT NULL AUTO_INCREMENT,
+  `SEXO` varchar(20) DEFAULT NULL,
+  `SEXOMASCOTA_ESTADO` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`ID_SEXOMASCOTA`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="colorMascota" view="colnames">
+<left>1146</left>
+<top>265</top>
+<width>200</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `colormascota` (
+  `ID_COLORMASCOTA` int(5) NOT NULL AUTO_INCREMENT,
+  `COLOR` varchar(50) DEFAULT NULL,
+  `COLORMASCOTA_ESTADO` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`ID_COLORMASCOTA`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="mascota" view="standard">
+<left>723</left>
+<top>25</top>
+<width>321</width>
+<height>391</height>
+<sql_create_table>CREATE TABLE `mascota` (
+  `ID_MASCOTA` varchar(36) NOT NULL,
+  `NOMBRE_MASCOTA` varchar(40) DEFAULT NULL,
+  `NACIMIENTO` date DEFAULT NULL,
+  `ID_ESPECIE` int(5) DEFAULT NULL,
+  `ID_RAZA` int(5) DEFAULT NULL,
+  `ID_COLORMASCOTA` int(5) DEFAULT NULL,
+  `ID_SEXOMASCOTA` int(5) DEFAULT NULL,
+  `SEÑALESPARTICULARES` varchar(500) DEFAULT NULL,
+  `ID_ESTADOMASCOTA` int(5) DEFAULT NULL,
+  `ID_PERSONA` varchar(36) DEFAULT NULL,
+  `USERREG` varchar(36) DEFAULT NULL,
+  `FECREG` date DEFAULT NULL,
+  `USERMOD` varchar(36) DEFAULT NULL,
+  `FECMOD` date DEFAULT NULL,
+  `CARACTERISTICAS_PERDIDO` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`ID_MASCOTA`),
+  KEY `ID_ESPECIE` (`ID_ESPECIE`),
+  KEY `ID_RAZA` (`ID_RAZA`),
+  KEY `ID_COLORMASCOTA` (`ID_COLORMASCOTA`),
+  KEY `ID_SEXOMASCOTA` (`ID_SEXOMASCOTA`),
+  KEY `ID_ESTADOMASCOTA` (`ID_ESTADOMASCOTA`),
+  KEY `ID_PERSONA` (`ID_PERSONA`),
+  CONSTRAINT `mascota_ibfk_1` FOREIGN KEY (`ID_ESPECIE`) REFERENCES `especie` (`ID_ESPECIE`),
+  CONSTRAINT `mascota_ibfk_2` FOREIGN KEY (`ID_RAZA`) REFERENCES `raza` (`ID_RAZA`),
+  CONSTRAINT `mascota_ibfk_3` FOREIGN KEY (`ID_COLORMASCOTA`) REFERENCES `colormascota` (`ID_COLORMASCOTA`),
+  CONSTRAINT `mascota_ibfk_4` FOREIGN KEY (`ID_SEXOMASCOTA`) REFERENCES `sexomascota` (`ID_SEXOMASCOTA`),
+  CONSTRAINT `mascota_ibfk_5` FOREIGN KEY (`ID_ESTADOMASCOTA`) REFERENCES `estadomascota` (`ID_ESTADOMASCOTA`),
+  CONSTRAINT `mascota_ibfk_6` FOREIGN KEY (`ID_PERSONA`) REFERENCES `users` (`ID_PERSONA`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="estadomascota" view="colnames">
+<left>1143</left>
+<top>534</top>
+<width>207</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `estadomascota` (
+  `ID_ESTADOMASCOTA` int(5) NOT NULL AUTO_INCREMENT,
+  `ESTADOMASCOTA` varchar(30) DEFAULT NULL,
+  `ESTADOMASCOTA_ESTADO` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`ID_ESTADOMASCOTA`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
