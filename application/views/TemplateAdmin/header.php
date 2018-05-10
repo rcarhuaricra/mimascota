@@ -17,7 +17,7 @@ date_default_timezone_set("America/Lima");
         <script src="<?php echo base_url('recursos/'); ?>carrousel-ricv.js" type="text/javascript"></script>
         <link href="<?php echo base_url('recursos/'); ?>fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url('recursos/'); ?>fonts/icofont/css/icofont.css" rel="stylesheet" type="text/css"/>
-<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
         <?php $this->load->view('/TemplateAdmin/Pluging/SweetAlert'); ?>
         <?php $this->load->view('/TemplateAdmin/Pluging/validator'); ?>
         <link href="<?php echo base_url('recursos/'); ?>styleRicv.css" rel="stylesheet" type="text/css"/>
