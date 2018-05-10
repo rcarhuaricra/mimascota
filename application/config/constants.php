@@ -103,27 +103,12 @@ define('FECHA_HORA_ACTUAL', strftime('%Y-%m-%d %H:%M:%S'));
 define('ICONO', 'http://ricv.pe/wp-content/uploads/2018/04/user-2-1.jpg');
 define('ENTIDAD', 'Nombre de Entidad');
 define('NOMBRESISTEMA', '<b>Nombre del </b>Sistemas');
-<<<<<<< HEAD
 
 
-define('MENU', '[{"controller": "inicio/","texto": "Inicio","icono": "fa fa-home","color": "text-green"},
-                {"controller": "inicio/menu2","texto": "menu2","icono": "fa fa-circle-o","color": "text-aqua"},
-                {"controller": "inicio/menu3","texto": "menu3","icono": "fa fa-circle-o","color": "text-aqua"}]');
 
-function GUID() {
-    if (function_exists('com_create_guid') === true) {
-        return trim(com_create_guid(), '{}');
-    }
 
-    return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
-}
-=======
->>>>>>> 3e780301856fc55aefd80b2d88ca2f519b102493
 
-function getIP() {
 
-<<<<<<< HEAD
-=======
 define('MENU', '[{"controller": "inicio/","texto": "Inicio","icono": "fa fa-home","color": "text-green"},
                 {"controller": "inicio/menu2","texto": "menu2","icono": "fa fa-circle-o","color": "text-aqua"},
                 {"controller": "inicio/menu3","texto": "menu3","icono": "fa fa-circle-o","color": "text-aqua"}]');
@@ -138,7 +123,7 @@ function GUID() {
 
 function getIP() {
 
->>>>>>> 3e780301856fc55aefd80b2d88ca2f519b102493
+
     if (isset($_SERVER["HTTP_CLIENT_IP"])) {
         return $_SERVER["HTTP_CLIENT_IP"];
     } elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
@@ -153,7 +138,7 @@ function getIP() {
         return $_SERVER["REMOTE_ADDR"];
     }
 }
-<<<<<<< HEAD
+
 
 ///ICONOS EN LA CABECERA
 $IconosAnimales = array(
@@ -284,5 +269,3 @@ Function fechas($dato) {
 
     echo $newformat;
 }
-=======
->>>>>>> 3e780301856fc55aefd80b2d88ca2f519b102493
