@@ -17,7 +17,9 @@ class Inicio extends CI_Controller {
         $this->load->view('/TemplateAdmin/MenuPrincipal');
         $this->load->view('/TemplateAdmin/Slider');        
         $this->load->view('/pages/inicio');        
-        $this->load->view('/modales/modal');
+        $this->load->view('/modales/modalRegisterUser');
+        $this->load->view('/modales/modalLogin');
+        $this->load->view('/TemplateAdmin/footer');
     }
     public function Mascotas($mascota=null) {
         if($this->session->userdata('logged')!=true){
@@ -33,7 +35,7 @@ class Inicio extends CI_Controller {
              $data = "que cosa pasa";
             $this->load->view('/pages/MascotaIndividual', $data);
         }
-        $this->load->view('/modales/modal');
+        $this->load->view('/modales/ModalRegisterMascota');
         $this->load->view('/TemplateAdmin/footer');
     }
 

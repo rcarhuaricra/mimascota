@@ -1,25 +1,31 @@
+<div class="modal fade" id="ModalRaza" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
 
-<div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Agregar Raza</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="modal-body">
-    <form id="formNewColor" method="post" action="<?php echo base_url(); ?>NewColor">
-        <div class="form-group">
-            <label for="Color" class="form-control-label"><span><span class="fa fa-user"></span> Color:</label>
-            <input type="text"  class="form-control required" id="" name="Color" placeholder="Ingrese Especie">
-            <div class="form-control-feedback" ></div>
-        </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Raza</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formNewColor" method="post" action="<?php echo base_url(); ?>NewColor">
+                    <div class="form-group">
+                        <label for="Color" class="form-control-label"><span><span class="fa fa-user"></span> Color:</label>
+                        <input type="text"  class="form-control required" id="" name="Color" placeholder="Ingrese Especie">
+                        <div class="form-control-feedback" ></div>
+                    </div>
 
-        <hr>
-        <div class="form-group">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="pull-right btn btn-outline-primary" >Ingresar</button>                        
+                    <hr>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="pull-right btn btn-outline-primary" >Ingresar</button>                        
+                    </div>
+                </form>
+            </div>   
         </div>
-    </form>
-</div>         
+    </div>
+</div>      
 
 
 <script>
@@ -61,10 +67,10 @@
                             timer: 1500,
                             showConfirmButton: false
                         });
-                        $("#ModalGeneral").modal('hide');
-                        $("#ModalGeneral").on('hidden.bs.modal', function () {
+                        $("#ModalRaza").modal('hide');
+                        $("#ModalRaza").on('hidden.bs.modal', function () {
                             $('#clearbtn').click();
-                            $("#NewColorModal").focus();
+                            dataTable.ajax.reload(null, false);
                         });
 
                     }

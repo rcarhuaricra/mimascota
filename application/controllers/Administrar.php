@@ -36,12 +36,11 @@ class Administrar extends CI_Controller {
         $data['titulo'] = "especies";
         $data['MenuAdmin'] = $this->load->view('/pages/administrar/AdministrarMenu', '', TRUE);
         $this->load->view('/pages/administrar/animales/especies', $data);
-        $this->load->view('/modales/modal');
+        $this->load->view('/modales/modalEspecie');
         $this->load->view('/TemplateAdmin/footer');
     }
 
     public function razas() {
-        echo $this->session->userdata('perfil');
         $data['pluging'] = array(
             'DataTable' => $this->load->view('/TemplateAdmin/Pluging/DataTable', '', TRUE),
         );
@@ -50,7 +49,7 @@ class Administrar extends CI_Controller {
         $data['titulo'] = "razas";
         $data['MenuAdmin'] = $this->load->view('/pages/administrar/AdministrarMenu', '', TRUE);
         $this->load->view('/pages/administrar/animales/razas', $data);
-        $this->load->view('/modales/modal');
+        $this->load->view('/modales/ModalRaza');
         $this->load->view('/TemplateAdmin/footer');
     }
 

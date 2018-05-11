@@ -2,6 +2,7 @@
 <script src="<?php echo base_url('recursos/'); ?>pluging/jquery-validation-1.17.0/src/localization/messages_es_PE.js" type="text/javascript"></script>
 <script>
     $.validator.setDefaults({
+
         errorElement: "div",
         errorClass: 'invalid-feedback',
         errorPlacement: function (error, element) {

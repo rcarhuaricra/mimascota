@@ -18,18 +18,8 @@
 
     $("#NewRazaModal").click(function (e) {
         //e.preventDefault();
-        $('#ModalGeneral').modal();
-        $.ajax({
-            cache: false,
-            type: 'POST',
-            url: '<?php echo base_url(); ?>modal/modalRaza',
-            success: function (response) {
-                $('#ModalGeneral').children("div").children("div.modal-content").html(response);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
+        $('#ModalRaza').modal();
+       
     });
     $(document).ready(function () {
         llamarTabla();

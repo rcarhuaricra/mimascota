@@ -1,26 +1,30 @@
+<div class="modal fade" id="ModalEspecie" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Especie</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formNewEspecie" method="post" action="<?php echo base_url(); ?>NewEspecie">
+                    <div class="form-group">
+                        <label for="Especie" class="form-control-label"><span><span class="fa fa-user"></span> Especie:</label>
+                        <input type="text" class="form-control required" id="Especie" name="Especie" placeholder="Ingrese Especie">
+                        <div class="form-control-feedback" ></div>
+                    </div>
 
-<div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Agregar Especie</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
+                    <hr>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="pull-right btn btn-outline-primary" >Ingresar</button>                        
+                    </div>
+                </form>
+            </div>         
+        </div>
+    </div>
 </div>
-<div class="modal-body">
-    <form id="formNewEspecie" method="post" action="<?php echo base_url(); ?>NewEspecie">
-        <div class="form-group">
-            <label for="Especie" class="form-control-label"><span><span class="fa fa-user"></span> Especie:</label>
-            <input type="text" class="form-control required" id="Especie" name="Especie" placeholder="Ingrese Especie">
-            <div class="form-control-feedback" ></div>
-        </div>
-
-        <hr>
-        <div class="form-group">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="pull-right btn btn-outline-primary" >Ingresar</button>                        
-        </div>
-    </form>
-</div>         
-
 
 <script>
     $(document).ready(function () {
@@ -58,9 +62,10 @@
                                 timer: 1500,
                                 showConfirmButton: false
                             });
-                            $("#ModalGeneral").modal('hide');
-                            $("#ModalGeneral").on('hidden.bs.modal', function () {
-                                $('#clearbtn').click();
+                            $("#ModalEspecie").modal('hide');
+                            dataTable.ajax.reload(null, false);
+                            $("#ModalEspecie").on('hidden.bs.modal', function () {                                
+                                
                             });
                         }
 

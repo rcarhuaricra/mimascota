@@ -12,7 +12,7 @@
             <button class="btn btn-primary" id="RegisterMascotaModal"><span class="icofont icofont-ui-add"></span> Agregar Mascota</button>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-md-4">
+            <div class="col-md-4">
                 <div class="card" >
                     <img class="card-img-top" src="..." alt="Card image cap">
                     <div class="card-body">
@@ -22,6 +22,23 @@
                             <div class="btn-group " role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-primary"><span class="icofont icofont-eye-alt"></span> Ver Carné</button>                            
                                 <button type="button" class="btn btn-primary"><span class="icofont icofont-holding-hands"></span> En Adopción</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" >
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre de Mascota</h5>
+                        <p class="card-text">Descripción</p>
+                        <div class="text-center">
+                            <div class="btn-group " role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-primary"><span class="icofont icofont-eye-alt"></span> Ver Carné</button>                            
+                                <button type="button" class="btn btn-primary"><span class="icofont icofont-holding-hands"></span> Dar En Adopción</button>
                             </div>
                         </div>
 
@@ -48,17 +65,7 @@
     });
     $("#RegisterMascotaModal").click(function (e) {
         e.preventDefault();
-        $('#ModalGeneral').modal();
-        $.ajax({
-            cache: false,
-            type: 'POST',
-            url: '<?php echo base_url(); ?>modal/ModalRegisterMascota',
-            success: function (response) {
-                $('#ModalGeneral').children("div").children("div.modal-content").html(response);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
+        $('#ModalRegistrarMascota').modal();
+       
     });
 </script>

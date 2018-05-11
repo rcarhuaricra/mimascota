@@ -1,75 +1,76 @@
-<div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Registrarme</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
+
+<div class="modal fade" id="ModalRegisterUser" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registrarme</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formRegister" method="post" action="<?php echo base_url(); ?>register">
+
+                    <div class="form-group">
+                        <label for="Regis_email" class="form-control-label">E-mail:</label>
+                        <input type="email" placeholder="Ingrese E-mail" class="form-control required" id="Regis_email" name="Regis_email" >
+                        <div class="form-control-feedback" ></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Regis_user" class="form-control-label">Usuario:</label>
+                        <input type="text" placeholder="Ingrese Usuario" class="form-control required" id="Regis_user" name="Regis_user" >
+                        <div class="form-control-feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Regis_name" class="form-control-label">Nombres:</label>
+                        <input type="text" placeholder="Ingrese Nombres" class="form-control required" id="Regis_name" name="Regis_name" >
+                        <div class="form-control-feedback" ></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Regis_ape_pat" class="form-control-label">Apellido Paterno:</label>
+                        <input type="text" placeholder="Ingrese Apellido Paterno" class="form-control required" id="Regis_ape_pat" name="Regis_ape_pat" >
+                        <div class="form-control-feedback" ></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Regis_ape_mat" class="form-control-label">Apellido Materno:</label>
+                        <input type="text" placeholder="Ingrese Apellido Materno" class="form-control required" id="Regis_ape_mat" name="Regis_ape_mat" >
+                        <div class="form-control-feedback" ></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Regis_pass" class="form-control-label">Contraseña:</label>
+                        <input type="password" placeholder="Ingrese Contraseña" class="form-control required"  id="Regis_pass" name="Regis_pass" >
+                        <div class="form-control-feedback" ></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="User_Pass_confirm" class="form-control-label">Confirme Contraseña:</label>
+                        <input type="password" placeholder="Confirme Contraseña" class="form-control required" equalTo="#Regis_pass" id="User_Pass_confirm" name="User_Pass_confirm" >
+                        <div class="form-control-feedback" ></div>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" class="minimal" name="Check_Notificaciones" id="Check_Notificaciones"> Acepto recibir Novedades y Ofertas</label>
+                    </div>
+
+
+                    <hr>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary cl" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="pull-right btn btn-outline-primary">Ingresar</button>                        
+                    </div>
+
+                </form>
+            </div>     
+        </div>
+    </div>
 </div>
-<div class="modal-body">
-    <form id="formRegister" method="post" action="<?php echo base_url(); ?>register">
 
-        <div class="form-group">
-            <label for="User_name" class="form-control-label">E-mail:</label>
-            <input type="text" placeholder="Nombre de Mascota" class="form-control required" id="User_name" name="User_name" >
-            <div class="form-control-feedback" ></div>
-        </div>
-        <div class="form-group">
-            <label for="Mascota_especie" class="form-control-label">Usuario:</label>
-            <input type="text" placeholder="Especie de la mascota" class="form-control required" id="Mascota_especie" name="Mascota_especie" >
-            <div class="form-control-feedback"></div>
-        </div>
-        <div class="form-group">
-            <label for="Mascota_FecNacimiento" class="form-control-label">Nombre:</label>
-            <input type="date" placeholder="Fecha de Nacimiento" class="form-control required" id="Mascota_FecNacimiento" name="Mascota_FecNacimiento" >
-            <div class="form-control-feedback" ></div>
-        </div>
-        <div class="form-group">
-            <label for="Mascota_Raza" class="form-control-label">Apellido Paterno:</label>
-            <input type="text" placeholder="Ingrese Raza" class="form-control required" id="Mascota_Raza" name="Mascota_Raza" >
-            <div class="form-control-feedback" ></div>
-        </div>
-        <div class="form-group">
-            <label for="Mascota_Color" class="form-control-label">Apellido Materno:</label>
-            <input type="text" placeholder="Color de Mascota" class="form-control required" id="Mascota_Color" name="Mascota_Color" >
-            <div class="form-control-feedback" ></div>
-        </div>
-        <div class="form-group">
-            <label for="Mascota_Sexo" class="form-control-label">Sexo:</label>
-            <input type="text" placeholder="Sexo de Mascota" class="form-control required" id="Mascota_Sexo" name="Mascota_Sexo" >
-            <div class="form-control-feedback" ></div>
-        </div>
-        <div class="form-group">
-            <label for="Mascota_Sexo" class="form-control-label">Contraseña:</label>
-            <input type="text" placeholder="Sexo de Mascota" class="form-control required" id="Mascota_Sexo" name="Mascota_Sexo" >
-            <div class="form-control-feedback" ></div>
-        </div>
-        <div class="form-group">
-            <label for="Mascota_Sexo" class="form-control-label">Confirme Contraseña:</label>
-            <input type="text" placeholder="Sexo de Mascota" class="form-control required" id="Mascota_Sexo" name="Mascota_Sexo" >
-            <div class="form-control-feedback" ></div>
-        </div>
-        <div class="form-group">
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Deseo recibir correo de Eventos y Promociones.</span>
-            </label>
-        </div>
-
-
-        <hr>
-
-        <div class="form-group">
-            <button type="button" class="btn btn-secondary cl" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="pull-right btn btn-outline-primary">Ingresar</button>                        
-        </div>
-
-    </form>
-</div>         
 
 <script>
 
 
     $(document).ready(function () {
+
         $("#formRegister").validate({
             rules: {
                 Regis_email: {
@@ -111,9 +112,14 @@
                     success: function (response) {
                         $("#" + $(form).attr("id"))[0].reset();
                         if (response == true) {
-                            swal('Su cuenta Fue Creada', 'Revise su Correo Para confirmar su Identidad', 'success', {
-                                button: "Aceptar"
-                            }).then((value) => {
+                            swal({
+                                title: "Su cuenta Fue Creada",
+                                text: "Revise su Correo Para confirmar su Identidad",
+                                type: "success",
+                                confirmButtonClass: "btn-primary",
+                                confirmButtonText: "ok",
+                                closeOnConfirm: false
+                            }, function () {
                                 location.reload();
                             });
                         } else {
