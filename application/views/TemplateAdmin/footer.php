@@ -5,7 +5,7 @@
 
     </div>
 </section>
-
+<script src="<?php echo base_url('recursos/'); ?>swallAlertMascotas.js" type="text/javascript"></script>
 </body>
 
 </html>

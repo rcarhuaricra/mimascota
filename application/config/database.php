@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   | the query builder class.
  */
 
-$active_group = 'proyect';
+$active_group = 'proyecthost';
 $query_builder = TRUE;
 
 $db['proyect']['hostname'] = "localhost";
@@ -95,4 +95,24 @@ $db['proyect']['stricton'] = FALSE;
 $db['proyect']['failover'] = array();
 $db['proyect']['save_queries'] = TRUE;
 
+
+$db['proyecthost']['hostname'] = "grupocarhua.com";
+$db['proyecthost']['port'] = "";
+$db['proyecthost']['username'] = "vhrzzeej_ricv";
+$db['proyecthost']['password'] = "ivanpepe_:;";
+$db['proyecthost']['database'] = "vhrzzeej_mimascota";
+$db['proyecthost']['dbdriver'] = "mysqli";
+$db['proyecthost']['dbprefix'] = "";
+$db['proyecthost']['pconnect'] = FALSE;
+$db['proyecthost']['db_debug'] = (ENVIRONMENT !== 'production');
+$db['proyecthost']['cache_on'] = FALSE;
+$db['proyecthost']['cachedir'] = "";
+$db['proyecthost']['char_set'] = "utf8";
+$db['proyecthost']['dbcollat'] = "utf8_general_ci";
+$db['proyecthost']['swap_pre'] = "";
+$db['proyecthost']['encrypt'] = FALSE;
+$db['proyecthost']['compress'] = FALSE;
+$db['proyecthost']['stricton'] = FALSE;
+$db['proyecthost']['failover'] = array();
+$db['proyecthost']['save_queries'] = TRUE;
 

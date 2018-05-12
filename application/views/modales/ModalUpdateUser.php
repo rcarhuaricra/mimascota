@@ -1,15 +1,16 @@
 
-<div class="modal fade" id="ModalRegisterUser" tabindex="-1" role="dialog">
+<div class="modal fade" id="ModalActualizarDatosUser" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Registrarme</h5>
+                <h5 id="porqueActualizar" class="modal-title" id="exampleModalLabel">Actualizar Datos</h5>
+                <button id="porqueActualizar" class="btn btn-link">¿por que tengo que hacer esto?</button>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formRegister" method="post" action="<?php echo base_url(); ?>register">
+                <form id="formUpdateUser" method="post" action="<?php echo base_url(); ?>register">
 
                     <div class="form-group">
                         <label for="Regis_email" class="form-control-label">E-mail:</label>
@@ -111,14 +112,10 @@
                     data: $(form).serialize(),
                     success: function (response) {
                         $("#" + $(form).attr("id"))[0].reset();
-                        $("#ModalRegisterUser").modal('hide');
                         if (response == true) {
                             swal({
-                                title: "¡Gracias por Registrarse!",
-                                html: true,
-                                text: "Gracias por ser parte de <b>Mi Mascota Favorita</b><br>\n\
-                                    Revise su Correo Para <b>confirmar su Identidad</b>, eso nos ayuda a \n\
-                                    tener mejores indicadores de cuantas personas son realmente amigos de los animales",
+                                title: "Su cuenta Fue Creada",
+                                text: "Revise su Correo Para confirmar su Identidad",
                                 type: "success",
                                 confirmButtonClass: "btn-primary",
                                 confirmButtonText: "ok",
@@ -126,7 +123,6 @@
                             }, function () {
                                 location.reload();
                             });
-                            
                         } else {
                             swal('Su cuenta No Fue Creada', 'Por favor comuniquese con el administrador del sitio', 'error').then((value) => {
                                 location.reload();

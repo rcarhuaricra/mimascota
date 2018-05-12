@@ -21,7 +21,7 @@ class Inicio extends CI_Controller {
         $this->load->view('/modales/modalLogin');
         $this->load->view('/TemplateAdmin/footer');
     }
-    public function Mascotas($mascota=null) {
+    public function Mascotas($mascota="") {
         if($this->session->userdata('logged')!=true){
             redirect('/');
         }
@@ -36,6 +36,7 @@ class Inicio extends CI_Controller {
             $this->load->view('/pages/MascotaIndividual', $data);
         }
         $this->load->view('/modales/ModalRegisterMascota');
+        $this->load->view('/modales/ModalUpdateUser');
         $this->load->view('/TemplateAdmin/footer');
     }
 

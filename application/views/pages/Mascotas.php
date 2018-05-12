@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card" >
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <img class="card-img-top" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Nombre de Mascota</h5>
                         <p class="card-text">Descripción</p>
@@ -29,23 +29,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card" >
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Nombre de Mascota</h5>
-                        <p class="card-text">Descripción</p>
-                        <div class="text-center">
-                            <div class="btn-group " role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-primary"><span class="icofont icofont-eye-alt"></span> Ver Carné</button>                            
-                                <button type="button" class="btn btn-primary"><span class="icofont icofont-holding-hands"></span> Dar En Adopción</button>
-                            </div>
-                        </div>
 
-
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="subtitulo">
@@ -61,11 +45,26 @@
 </section>
 <script>
     $(document).ready(function () {
-        $('#RegisterMascotaModal').trigger('click');
+        //$('#RegisterMascotaModal').trigger('click');
     });
-    $("#RegisterMascotaModal").click(function (e) {
-        e.preventDefault();
-        $('#ModalRegistrarMascota').modal();
-       
+    $("#RegisterMascotaModal").click(function () {
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>validarDatos/documentos",
+            success: function (response) {
+                console.log(response);
+                switch (response) {
+                    case "true":
+                        $('#ModalRegistrarMascota').modal();
+                        break;
+                    case "false":
+                        $('#ModalRegistrarMascota').modal();
+                        break;
+                }
+            }
+        });
+        // 
+
     });
 </script>

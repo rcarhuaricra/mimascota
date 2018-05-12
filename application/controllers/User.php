@@ -31,7 +31,6 @@ class User extends CI_Controller {
     }
 
     public function registrar() {
-
         $data['ID_PERSONA'] = GUID();
         $data['EMAIL'] = $this->input->post("Regis_email");
         $data['USER'] = $this->input->post("Regis_user");
@@ -44,7 +43,28 @@ class User extends CI_Controller {
         $data['USERESTADO'] = "0";
         $data['NOTIFICACIONES'] = $this->input->post("Check_Notificaciones");
         $this->load->model('Registros_Model');
-        echo $this->Registros_Model->Registrar_Usuarios($data);
+        $registro = $this->Registros_Model->Registrar_Usuarios($data);
+        if ($registro == 1) {
+            $this->load->library('email');
+            $this->email->from('replyto@mimascotafavorita.grupocarhua.com', 'Registro Mi Mascota');
+            $this->email->to($data['EMAIL']);
+            $this->email->subject('Estimado '.$data['NOMBRES'].' Gracias por Registrarse');
+            $this->email->message($this->load->view('pages/mensaje', $data, TRUE));
+            $this->email->set_mailtype('html');
+            if ($this->email->send()) {
+                echo "exito";
+            } else {
+                echo "error";
+            }
+        } else {
+            echo "error";
+        }
+        
+        
+    }
+
+    protected function mailRegister() {
+        
     }
 
     public function logout() {

@@ -49,5 +49,10 @@ class Validation_model extends CI_Model {
         $consulta = $this->db->query($query);
         return $consulta->num_rows();
     }
+    public function validar_Documento($id) {
+         $query = "SELECT NUMERO_DOCUMENTO FROM `users` WHERE `ID_PERSONA`='$id'";
+        $consulta = $this->db->query($query);
+        return $consulta->row();
+    }
 
 }

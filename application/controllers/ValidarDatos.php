@@ -6,13 +6,13 @@ class ValidarDatos extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        // Your own constructor code               
+        // Your own constructor code       
+        $this->load->model('Validation_model');
     }
 
     //START VADAR LOS DATOS INGRESADOS EN EL LOGIN
     public function EmailUserLogin() {
         $user = $this->input->post("user");
-        $this->load->model('Validation_model');
         $data = $this->Validation_model->validar_User_Or_Email($user);
         if ($data > 0) {
             echo "true";
@@ -24,7 +24,6 @@ class ValidarDatos extends CI_Controller {
     public function PassLogin() {
         $user = $this->input->post("user");
         $pass = md5($this->input->post("pass"));
-        $this->load->model('Validation_model');
         $data = $this->Validation_model->validar_Password($user, $pass);
         if ($data > 0) {
             echo "true";
@@ -37,7 +36,6 @@ class ValidarDatos extends CI_Controller {
     //START VADAR LOS DATOS INGRESADOS EN EL REGISTRO
     public function EmailRegister() {
         $email = $this->input->post("email");
-        $this->load->model('Validation_model');
         $data = $this->Validation_model->validar_User_Or_Email($email);
         if ($data > 0) {
             echo "false";
@@ -48,7 +46,6 @@ class ValidarDatos extends CI_Controller {
 
     public function UserRegister() {
         $user = $this->input->post("Regis_user");
-        $this->load->model('Validation_model');
         $data = $this->Validation_model->validar_User_Or_Email($user);
         if ($data > 0) {
             echo "false";
@@ -59,7 +56,6 @@ class ValidarDatos extends CI_Controller {
 
     public function especie() {
         $input = $this->input->post("Especie");
-        $this->load->model('Validation_model');
         $data = $this->Validation_model->validar_Especie($input);
         if ($data > 0) {
             echo "false";
@@ -67,11 +63,22 @@ class ValidarDatos extends CI_Controller {
             echo "true";
         }
     }
-     public function color() {
+
+    public function color() {
         $input = $this->input->post("Color");
-        $this->load->model('Validation_model');
         $data = $this->Validation_model->validar_color($input);
         if ($data > 0) {
+            echo "false";
+        } else {
+            echo "true";
+        }
+    }
+
+    public function Documentos() {
+        $id = $this->session->userdata('id');
+        $data = $this->Validation_model->validar_Documento($id);
+        //echo $data->NUMERO_DOCUMENTO;
+        if ($data->NUMERO_DOCUMENTO =="") {
             echo "false";
         } else {
             echo "true";
