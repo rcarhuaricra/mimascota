@@ -36,7 +36,7 @@ class Administrar extends CI_Controller {
         $data['titulo'] = "especies";
         $data['MenuAdmin'] = $this->load->view('/pages/administrar/AdministrarMenu', '', TRUE);
         $this->load->view('/pages/administrar/animales/especies', $data);
-        $this->load->view('/modales/modalEspecie');
+        $this->load->view('/modales/ModalEspecie');
         $this->load->view('/TemplateAdmin/footer');
     }
 
@@ -63,7 +63,7 @@ class Administrar extends CI_Controller {
         $data['titulo'] = "color";
         $data['MenuAdmin'] = $this->load->view('/pages/administrar/AdministrarMenu', '', TRUE);
         $this->load->view('/pages/administrar/animales/color', $data);
-           $this->load->view('/modales/modal');
+           $this->load->view('/modales/ModalColor');
         $this->load->view('/TemplateAdmin/footer');
     }
 
