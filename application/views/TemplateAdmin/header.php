@@ -20,7 +20,7 @@ date_default_timezone_set("America/Lima");
         <link href="<?php echo base_url('recursos/'); ?>fonts/icofont/css/icofont.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
         <?php $this->load->view('/TemplateAdmin/Pluging/SweetAlert'); ?>
-        <?php $this->load->view('/TemplateAdmin/Pluging/validator'); ?>
+        <?php $this->load->view('/TemplateAdmin/Pluging/Validator'); ?>
         <?php $this->load->view('/TemplateAdmin/Pluging/icheck'); ?>
         
         <link href="<?php echo base_url('recursos/'); ?>styleRicv.css" rel="stylesheet" type="text/css"/>

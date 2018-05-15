@@ -17,8 +17,8 @@ class Inicio extends CI_Controller {
         $this->load->view('/TemplateAdmin/MenuPrincipal');
         $this->load->view('/TemplateAdmin/Slider');        
         $this->load->view('/pages/inicio');        
-        $this->load->view('/modales/modalRegisterUser');
-        $this->load->view('/modales/modalLogin');
+        $this->load->view('/modales/ModalRegisterUser');
+        $this->load->view('/modales/ModalLogin');
         $this->load->view('/TemplateAdmin/footer');
     }
     public function Mascotas($mascota="") {
