@@ -6,6 +6,9 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+                <a class="nav-link"  href="<?php echo base_url("administrar/galeria") ?>"> <span class="icofont icofont-image"></span> Galeria</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link"  href="<?php echo base_url("administrar/negocios") ?>"> <span class="icofont icofont-shopping-cart"></span> Negocios</a>
             </li>
             <li class="nav-item dropdown">

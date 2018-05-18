@@ -35,7 +35,28 @@
 <script>
 
     $(document).ready(function () {
-
+        $("#formLogin").submit(function (event) {
+            $("button[type=submit]").prop('disabled', true);
+            event.preventDefault();
+            $.ajax({
+                type: $(this).attr("method"),
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                beforeSend: function () {
+                    $(this).find('input', 'textarea', 'button', 'select').prop('disabled', true);
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response == true) {
+                        $("#ModalLogin").modal('hide');
+                        $("#ModalLogin").on('hidden.bs.modal', function () {
+                            $(this).find('input', 'textarea', 'button', 'select').prop('disabled', false);
+                            location.reload();
+                        });
+                    }
+                }
+            });
+        });
 
         $("#formLogin").validate({
             rules: {
@@ -72,25 +93,6 @@
                 Login_pass: {
                     remote: "El Password no coincide con el Usuario/E-mail ingresado. <a href='#' class='text-primary'>Enviar Password al correo</a>"
                 }
-            },
-        onkeyup: false,
-        onclick: false,
-            submitHandler: function (form) {
-                $.ajax({
-                    type: $(form).attr("method"),
-                    url: $(form).attr("action"),
-                    data: $(form).serialize(),
-                    success: function (response) {
-                        console.log(response);
-                        if (response == true) {
-                            $("#ModalLogin").modal('hide');
-                            $("#ModalLogin").on('hidden.bs.modal', function () {
-                                location.reload();
-                            });
-                        }
-                    }
-                });
-                return false;
             }
 
         });

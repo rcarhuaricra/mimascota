@@ -70,7 +70,45 @@
 
 
     $(document).ready(function () {
+        $("#formRegister").submit(function (event) {
+            $("button[type=submit]").prop('disabled', true);
+            event.preventDefault();
+            $.ajax({
+                type: $(this).attr("method"),
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                beforeSend: function () {
+                    $(this).find('input', 'textarea', 'button', 'select').prop('disabled', true);
+                },
+                success: function (response) {
+                    $("form")[0].reset();
 
+                    $("#ModalRegisterUser").modal('hide');
+                    $(this).find('input', 'textarea', 'button', 'select').prop('disabled', false);
+                    if (response == true) {
+                        swal({
+                            title: "¡Gracias por Registrarse!",
+                            html: true,
+                            text: "Gracias por ser parte de <b>Mi Mascota Favorita</b><br>\n\
+                                    Revise su Correo Para <b>confirmar su Identidad</b>, eso nos ayuda a \n\
+                                    tener mejores indicadores de cuantas personas son realmente amigos de los animales",
+                            type: "success",
+                            confirmButtonClass: "btn-primary",
+                            confirmButtonText: "ok",
+                            closeOnConfirm: false
+                        }, function () {
+                            location.reload();
+                        });
+
+                    } else {
+                        swal('Su cuenta No Fue Creada', 'Por favor comuniquese con el administrador del sitio', 'error').then((value) => {
+                            location.reload();
+                        });
+
+                    }
+                }
+            });
+        });
         $("#formRegister").validate({
             rules: {
                 Regis_email: {
@@ -103,39 +141,6 @@
                 Regis_user: {
                     remote: "El Usuario ingresado ya existe Elija otro"
                 }
-            }, submitHandler: function (form) {
-
-                $.ajax({
-                    type: $(form).attr("method"),
-                    url: $(form).attr("action"),
-                    data: $(form).serialize(),
-                    success: function (response) {
-                        $("#" + $(form).attr("id"))[0].reset();
-                        $("#ModalRegisterUser").modal('hide');
-                        if (response == true) {
-                            swal({
-                                title: "¡Gracias por Registrarse!",
-                                html: true,
-                                text: "Gracias por ser parte de <b>Mi Mascota Favorita</b><br>\n\
-                                    Revise su Correo Para <b>confirmar su Identidad</b>, eso nos ayuda a \n\
-                                    tener mejores indicadores de cuantas personas son realmente amigos de los animales",
-                                type: "success",
-                                confirmButtonClass: "btn-primary",
-                                confirmButtonText: "ok",
-                                closeOnConfirm: false
-                            }, function () {
-                                location.reload();
-                            });
-                            
-                        } else {
-                            swal('Su cuenta No Fue Creada', 'Por favor comuniquese con el administrador del sitio', 'error').then((value) => {
-                                location.reload();
-                            });
-
-                        }
-                    }
-                });
-                return false; // required to block normal submit since you used ajax
             }
         });
     });

@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   | the query builder class.
  */
 
-$active_group = 'proyect';
+$active_group = 'proyecthost';
 $query_builder = TRUE;
 
 $db['proyect']['hostname'] = "localhost";

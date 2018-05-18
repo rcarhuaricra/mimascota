@@ -44,12 +44,13 @@ class User extends CI_Controller {
         $data['NOTIFICACIONES'] = $this->input->post("Check_Notificaciones");
         $this->load->model('Registros_Model');
         $registro = $this->Registros_Model->Registrar_Usuarios($data);
-        if ($registro == 1) {
+        
+        if ($registro == true) {
             $this->load->library('email');
             $this->email->from('replyto@mimascotafavorita.grupocarhua.com', 'Registro Mi Mascota');
             $this->email->to($data['EMAIL']);
             $this->email->subject('Estimado '.$data['NOMBRES'].' Gracias por Registrarse');
-            $this->email->message($this->load->view('pages/mensaje', $data, TRUE));
+            //$this->email->message($this->load->view('pages/mensaje', $data, TRUE));
             $this->email->set_mailtype('html');
             if ($this->email->send()) {
                 echo "exito";
