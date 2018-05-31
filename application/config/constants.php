@@ -269,7 +269,7 @@ Function fechas($dato) {
     echo $newformat;
 }
 
-function linpiarName($string) {
+function limpiarName($string) {
     $extension = pathinfo($string, PATHINFO_EXTENSION);
     $nombre_base = basename($string, '.' . $extension);
     return hyphenize($nombre_base);

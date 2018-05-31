@@ -18,7 +18,7 @@ class FileUpload extends CI_Controller {
                 echo json_encode($data);
             }
         }
-        $output = array();
+        $output = [];
 
         $filesCount = count($_FILES['inputImage']['name']);
         for ($i = 0; $i < $filesCount; $i++) {
@@ -27,9 +27,9 @@ class FileUpload extends CI_Controller {
             $_FILES['inputIma']['tmp_name'] = $_FILES['inputImage']['tmp_name'][$i];
             $_FILES['inputIma']['error'] = $_FILES['inputImage']['error'][$i];
             $_FILES['inputIma']['size'] = $_FILES['inputImage']['size'][$i];
-            $nombre = linpiarName($_FILES['inputIma']['name']);
+            $nombre = limpiarName($_FILES['inputIma']['name']);
             $config['upload_path'] = $nombre_fichero;
-            $config['allowed_types'] = 'gif|jpg|png|pdf';
+            $config['allowed_types'] = 'jpg|png|gif|pdf|doc|docx|xls|xlsx';
             $config['max_size'] = 10000;
             $config['file_name'] = $nombre;
             $this->load->library('upload', $config);
@@ -39,18 +39,25 @@ class FileUpload extends CI_Controller {
             if ($this->upload->do_upload('inputIma')) {
                 $data = array("upload_data" => $this->upload->data());
                 $insert['ID_IMAGEN'] = GUID();
-                $insert['TITULO_IMG'] = $data['upload_data']['file_name'];
+                $insert['TITULO_IMG'] = $data['upload_data']['raw_name'];
+                $insert['TYPE_IMG'] = $data['upload_data']['file_type'];
                 $insert['URL_IMAGEN'] = substr($nombre_fichero . $data['upload_data']['file_name'], 1);
                 $insert['DESCRIPTION'] = '';
+                $insert['USERREG'] = $_SESSION['id'];
+                $insert['FECREG'] = HOY;
+
                 if ($this->ImagesModel->InsertNewImage($insert)) {
                     array_push($output, array(
-                        'uploaded' => 'OK'
+                        'uploaded' => $this->upload->data()
                     ));
                 }
             } else {
-                array_push($output, array(
-                    'uploaded' => 'failed'
-                ));
+                $output = ['error'=>$this->upload->display_errors()];
+                
+                /*array_push($output, array(
+                    //'uploaded' => 'failed'
+                    'error' => $this->upload->display_errors()
+                ));*/
             }
             /* array_push($output, array(
               'uploaded' => 'OK'

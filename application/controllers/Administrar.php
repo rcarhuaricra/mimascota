@@ -86,7 +86,7 @@ class Administrar extends CI_Controller {
         );
         $this->load->view('/TemplateAdmin/header', $data);
         $this->load->view('/TemplateAdmin/MenuPrincipal');
-        $data['titulo'] = "Galeria";
+        $data['titulo'] = "Galeria de Archivos";
         $data['MenuAdmin'] = $this->load->view('/pages/administrar/AdministrarMenu', '', TRUE);
         $this->load->view('/pages/administrar/galerias/galeria', $data);
         $this->load->view('/TemplateAdmin/footer');

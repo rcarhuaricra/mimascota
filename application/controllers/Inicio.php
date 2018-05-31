@@ -24,8 +24,7 @@ class Inicio extends CI_Controller {
     public function Mascotas($mascota="") {
         if($this->session->userdata('logged')!=true){
             redirect('/');
-        }
-        
+        }        
         $this->load->view('/TemplateAdmin/header');
         $this->load->view('/TemplateAdmin/MenuPrincipal');
         if ($mascota == null) {

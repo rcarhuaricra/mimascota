@@ -17,27 +17,6 @@
                         <div class="form-control-feedback" ></div>
                     </div>
                     <div class="form-group">
-                        <label for="Regis_user" class="form-control-label">Usuario:</label>
-                        <input type="text" placeholder="Ingrese Usuario" class="form-control required" id="Regis_user" name="Regis_user" >
-                        <div class="form-control-feedback"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="Regis_name" class="form-control-label">Nombres:</label>
-                        <input type="text" placeholder="Ingrese Nombres" class="form-control required" id="Regis_name" name="Regis_name" >
-                        <div class="form-control-feedback" ></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="Regis_ape_pat" class="form-control-label">Apellido Paterno:</label>
-                        <input type="text" placeholder="Ingrese Apellido Paterno" class="form-control required" id="Regis_ape_pat" name="Regis_ape_pat" >
-                        <div class="form-control-feedback" ></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="Regis_ape_mat" class="form-control-label">Apellido Materno:</label>
-                        <input type="text" placeholder="Ingrese Apellido Materno" class="form-control required" id="Regis_ape_mat" name="Regis_ape_mat" >
-                        <div class="form-control-feedback" ></div>
-                    </div>
-
-                    <div class="form-group">
                         <label for="Regis_pass" class="form-control-label">Contraseña:</label>
                         <input type="password" placeholder="Ingrese Contraseña" class="form-control required"  id="Regis_pass" name="Regis_pass" >
                         <div class="form-control-feedback" ></div>
@@ -50,10 +29,7 @@
                     <div class="form-group">
                         <label><input type="checkbox" class="minimal" name="Check_Notificaciones" id="Check_Notificaciones"> Acepto recibir Novedades y Ofertas</label>
                     </div>
-
-
                     <hr>
-
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary cl" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="pull-right btn btn-outline-primary">Ingresar</button>                        
@@ -67,9 +43,7 @@
 
 
 <script>
-
-
-    $(document).ready(function () {
+    function submit() {
         $("#formRegister").submit(function (event) {
             $("button[type=submit]").prop('disabled', true);
             event.preventDefault();
@@ -109,39 +83,30 @@
                 }
             });
         });
-        $("#formRegister").validate({
-            rules: {
-                Regis_email: {
-                    "remote": {
-                        url: "<?php echo base_url(); ?>validarDatos/EmailRegister",
-                        type: "post",
-                        data: {
-                            email: function () {
-                                return $("#Regis_email").val();
-                            }
-                        }
-                    }
-                },
-                Regis_user: {
-                    "remote": {
-                        url: "<?php echo base_url(); ?>validarDatos/UserRegister",
-                        type: "post",
-                        data: {
-                            Regis_user: function () {
-                                return $("#Regis_user").val();
-                            }
+    }
+    $("#formRegister").validate({
+        rules: {
+            Regis_email: {
+                "remote": {
+                    url: "<?php echo base_url(); ?>validarDatos/EmailRegister",
+                    type: "post",
+                    data: {
+                        email: function () {
+                            return $("#Regis_email").val();
                         }
                     }
                 }
             },
-            messages: {
-                Regis_email: {
-                    remote: "El E-mail ingresado ya esta registrado <a href='#'>si quiere recuperar su contraseña aqui</a>"
-                },
-                Regis_user: {
-                    remote: "El Usuario ingresado ya existe Elija otro"
-                }
+           
+        },
+        messages: {
+            Regis_email: {
+                remote: "El E-mail ingresado ya esta registrado <a href='#'>si quiere recuperar su contraseña aqui</a>"
             }
-        });
+        
+        },
+        submitHandler: function () {
+            submit();
+        }
     });
 </script>
